@@ -1,0 +1,59 @@
+// Dashboard.css
+.dashboard {
+  display: flex;
+  flex: 1;
+  padding: 1rem;
+}
+
+.dashboard-sidebar {
+  width: 200px;
+  padding: 1rem;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-btn {
+  width: 100%;
+  background-color: #0078d7;
+  color: white;
+  padding: 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.dropdown-menu {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-top: 4px;
+  padding: 5px 0;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.dashboard-content {
+  flex: 1;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.feed-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}

@@ -1,0 +1,31 @@
+.profile-wrapper {
+    position: relative;
+  }
+  
+  .profile-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    width: 140px;
+    z-index: 1001;
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f3f3f3;
+  }
+  

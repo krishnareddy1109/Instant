@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import Topbar from "./components/Topbar";
+import Dashboard from "./components/Dashboard";
+import Login from "./components/Login"; // 🔸 Make sure you created Login.js
+import "./App.css";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 🔐 Login control
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {!isLoggedIn ? (
+        <Login onLogin={() => setIsLoggedIn(true)} />
+      ) : (
+        <>
+          <Sidebar />
+          <div className="main">
+            <Topbar />
+            <Dashboard />
+          </div>
+        </>
+      )}
     </div>
   );
 }
 
 export default App;
+
+
