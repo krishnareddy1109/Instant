@@ -1,0 +1,33 @@
+name: Bi-Directional Branch Sync
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for all branches
+
+    - name: Configure Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+    - name: Merge master into Krishna
+      run: |
+        git checkout Krishna
+        git merge origin/master --no-edit || echo "Merge conflict in Krishna, skipping"
+        git push origin Krishna
+
+    - name: Merge master into Naveen
+      run: |
+        git checkout Naveen
+        git merge origin/master --no-edit || echo "Merge conflict in Naveen, skipping"
+        git push origin Naveen
