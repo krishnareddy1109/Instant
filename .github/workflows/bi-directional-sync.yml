@@ -13,21 +13,24 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Fetch all history for all branches
+        fetch-depth: 0  # Ensures full branch history is available
 
-    - name: Configure Git
+    - name: Fetch all remote branches
+      run: git fetch --all
+
+    - name: Configure Git identity
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-    - name: Merge master into Krishna
+    - name: Merge master into krishna
       run: |
-        git checkout Krishna
-        git merge origin/master --no-edit || echo "Merge conflict in Krishna, skipping"
-        git push origin Krishna
+        git checkout krishna || git checkout -b krishna origin/krishna
+        git merge origin/master --no-edit || echo "Merge conflict in krishna, skipping"
+        git push origin krishna
 
-    - name: Merge master into Naveen
+    - name: Merge master into naveen
       run: |
-        git checkout Naveen
-        git merge origin/master --no-edit || echo "Merge conflict in Naveen, skipping"
-        git push origin Naveen
+        git checkout naveen || git checkout -b naveen origin/naveen
+        git merge origin/master --no-edit || echo "Merge conflict in naveen, skipping"
+        git push origin naveen
