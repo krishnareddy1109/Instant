@@ -1,31 +1,33 @@
-.profile-wrapper {
-    position: relative;
-  }
-  
-  .profile-dropdown {
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-radius: 6px;
-    width: 140px;
-    z-index: 1001;
-  }
-  
-  .dropdown-item {
-    padding: 10px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .dropdown-item:last-child {
-    border-bottom: none;
-  }
-  
-  .dropdown-item:hover {
-    background-color: #f3f3f3;
-  }
-  
+/* File: Topbar.css */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-box {
+  padding: 2rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.topbar-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
