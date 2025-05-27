@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid } from "@mui/material";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import Topbar from "./Topbar";
@@ -29,4 +28,3 @@ function Main() {
 }
 
 export default Main;
-
