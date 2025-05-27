@@ -27,7 +27,6 @@ function App() {
                 )
               }
             />
-            {/* Add other routes here */}
           </Routes>
         </Main>
       )}
@@ -36,5 +35,3 @@ function App() {
 }
 
 export default App;
-
-

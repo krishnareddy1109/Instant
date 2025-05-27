@@ -3,7 +3,6 @@ import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import Topbar from "./Topbar";
 
-
 function Main() {
   return (
     <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
@@ -29,4 +28,3 @@ function Main() {
 }
 
 export default Main;
-

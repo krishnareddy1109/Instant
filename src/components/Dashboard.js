@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Middle from "./Middle";
-import Right from "./Right"; // if you're displaying email details on click
+import Right from "./Right";
+import "./Dashboard.css";
 
 function Dashboard({ subCollect, search }) {
   const [selectedEmail, setSelectedEmail] = useState(null);
@@ -9,7 +10,7 @@ function Dashboard({ subCollect, search }) {
     <div
       className="dashboard-content"
       style={{
-        marginLeft: "12vw", // matches Sidebar width
+        marginLeft: "12vw",
         padding: "1rem",
         backgroundColor: "#f9fafb",
         minHeight: "100vh",
@@ -29,5 +30,3 @@ function Dashboard({ subCollect, search }) {
 }
 
 export default Dashboard;
-
-
