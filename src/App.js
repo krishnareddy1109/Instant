@@ -1,27 +1,37 @@
 import React, { useState } from "react";
-import Sidebar from "./components/Sidebar";
-import Topbar from "./components/Topbar";
-import Dashboard from "./components/Dashboard";
-import Login from "./components/Login"; // 🔸 Make sure you created Login.js
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Main from "./components/Main";
+import IntroPage from "./components/IntroPage";
+import Login from "./components/Login";
+import Middle from "./components/Middle";
+import Right from "./components/Right";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 🔐 Login control
+  const [stage, setStage] = useState("intro"); // intro | login | main
+  const [selectedEmail, setSelectedEmail] = useState(null);
 
   return (
-    <div className="app">
-      {!isLoggedIn ? (
-        <Login onLogin={() => setIsLoggedIn(true)} />
-      ) : (
-        <>
-          <Sidebar />
-          <div className="main">
-            <Topbar />
-            <Dashboard />
-          </div>
-        </>
+    <Router>
+      {stage === "intro" && <IntroPage onStart={() => setStage("login")} />}
+      {stage === "login" && <Login onLogin={() => setStage("main")} />}
+      {stage === "main" && (
+        <Main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                selectedEmail ? (
+                  <Right email={selectedEmail} onBack={() => setSelectedEmail(null)} />
+                ) : (
+                  <Middle onSelectEmail={setSelectedEmail} />
+                )
+              }
+            />
+            {/* Add other routes here */}
+          </Routes>
+        </Main>
       )}
-    </div>
+    </Router>
   );
 }
 
