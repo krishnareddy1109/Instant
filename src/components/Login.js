@@ -8,11 +8,18 @@ function Login({ onLogin }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // You can later replace this with Firebase or API
-    if (email && password) {
-      console.log("Logging in with", email, password);
-      onLogin(); // optional: set auth status
-    }
+  try {
+     const response = await axios.post("http://localhost:8080/api/auth/login", {
+       email,
+       password,
+     });
+
+     const token = response.data.token;
+     localStorage.setItem("authToken", token); // store token for future requests
+     onLogin(); // callback to notify successful login
+   } catch (error) {
+     alert(error.response?.data?.message || "Invalid email or password.");
+   }
   };
 
   return (
